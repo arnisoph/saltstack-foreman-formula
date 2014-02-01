@@ -1,0 +1,18 @@
+{% set foreman = salt['grains.filter_by'](
+  {
+    'Debian': {
+      'manage_foremanrepo': True,
+      'repo_url': 'http://deb.theforeman.org/',
+      'repo_dist': salt['grains.get']('oscodename'),
+      'repo_comps': 'stable',
+      'repo_keyurl': 'http://deb.theforeman.org/foreman.asc',
+      'foreman_installer_path': '/usr/bin/foreman-installer',
+      'foreman_installer_params_basic': (
+        'verbose',
+        'no-colors',
+      ),
+      'foreman_installer_params_puppetmodules': (
+      ),
+    },
+  }
+, merge=salt['pillar.get']('foreman:lookup')) %}
