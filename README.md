@@ -4,7 +4,7 @@ Salt Stack Formula to set up and configure the lifecycle management tool Foreman
 
 ## TODO
 
-The long-term goal is to have a comfortable formula and all puppet modules used by the foreman-installer (kafo) to be replaced by e.g. Salt Stack Formulas.
+The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by e.g. Salt Stack Formulas.
 
 ## Instructions
 
