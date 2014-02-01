@@ -24,6 +24,10 @@ Install the foreman repo, the foreman-installer package and runs it.
 
 See [http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller](http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller) (or newer doc)
 
+## Formula Dependencies
+
+None
+
 ## Compatibility
 
 *DOES* work on:
