@@ -12,7 +12,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 2. Configure your Pillar top file (`/srv/pillar/top.sls`), see pillar.example
 
-3. Include this Formula within another Formula and simply define your needed states within the Salt top file (`/srv/salt/top.sls`).
+3. Include this Formula within another Formula or simply define your needed states within the Salt top file (`/srv/salt/top.sls`).
 
 ## Available states
 
