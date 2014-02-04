@@ -18,7 +18,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 ### foreman
 
-Install the foreman repo, the foreman-installer package and runs it.
+Installs the foreman repo, the foreman-installer package and runs it.
 
 ## Additional resources
 
