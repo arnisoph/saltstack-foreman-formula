@@ -1,3 +1,4 @@
+{% load_yaml as rawmap %}
 Debian:
   manage_foremanrepo: True
   repo_url: http://deb.theforeman.org/
@@ -9,4 +10,4 @@ Debian:
     - verbose
     - no-colors
 #  foreman_installer_params_puppetmodules:
-
+{% endload %}
