@@ -1,8 +1,8 @@
-{% import_yaml "foreman/defaults.yaml" as rawmap %}
+{% from "foreman/defaults.yaml" import rawmap with context %}
 {% set datamap = salt['grains.filter_by'](rawmap, merge=salt['pillar.get']('foreman:lookup')) %}
 
-{% if datamap['manage_foremanrepo'] %}
-  {% if grains.get('os_family') == 'Debian' %}
+{% if datamap['manage_foremanrepo'] == True %}
+  {% if salt['grains.get']('os_family') == 'Debian' %}
 foreman_repo:
   pkgrepo:
     - managed

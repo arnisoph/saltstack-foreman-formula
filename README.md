@@ -2,6 +2,10 @@
 
 Salt Stack Formula to set up and configure the lifecycle management tool Foreman
 
+## NOTICE BEFORE YOU USE
+
+* This formula aims to follow the conventions and recommendations described at [http://docs.saltstack.com/topics/conventions/formulas.html](http://docs.saltstack.com/topics/conventions/formulas.html)
+
 ## TODO
 
 The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by e.g. Salt Stack Formulas.
@@ -18,7 +22,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 ### foreman
 
-Installs the foreman repo, the foreman-installer package and runs it.
+Installs the foreman repo, the foreman-installer (kafo based) package and runs it.
 
 ## Additional resources
 
