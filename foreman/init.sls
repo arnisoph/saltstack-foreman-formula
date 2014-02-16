@@ -15,9 +15,12 @@ foreman_repo:
 foreman:
   pkg:
     - installed
-    - name: foreman-installer
+    - pkgs:
+{% for p in datamap['kafo_installer']['pkgs'] %}
+      - {{ p }}
+{% endfor %}
   cmd:
     - wait
-    - name: {{ datamap['foreman_installer_path'] }}{% for param in datamap['foreman_installer_params_basic'] %} --{{ param }}{% endfor %}{% for param in datamap['foreman_installer_params_puppetmodules'] %} --{{ param }}{% endfor %}
+    - name: {{ datamap['kafo_installer']['path'] }}{% for param in datamap['kafo_installer']['params_basic'] %} --{{ param }}{% endfor %}{% for param in datamap['kafo_installer']['params_puppetmodules'] %} --{{ param }}{% endfor %}
     - watch:
       - pkg: foreman

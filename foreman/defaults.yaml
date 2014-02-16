@@ -5,10 +5,22 @@ Debian:
   repo_dist: {{ salt['grains.get']('oscodename') }}
   repo_comps: stable
   repo_keyurl: http://deb.theforeman.org/foreman.asc
-  foreman_installer_path: /usr/bin/foreman-installer
-  foreman_installer_params_basic:
-    - verbose
-    - no-colors
-  foreman_installer_params_puppetmodules:
-    - ''
+  kafo_installer:
+    path: /usr/bin/foreman-installer
+    params_basic:
+      - verbose
+      - no-colors
+    params_puppetmodules:
+      - ''
+    pkgs:
+      - foreman-installer
+  compute:
+    pkgs:
+      - foreman-compute
+    libvirt:
+      pkgs:
+        - foreman-libvirt
+  console:
+    pkgs:
+      - foreman-console
 {% endload %}
