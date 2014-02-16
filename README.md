@@ -10,11 +10,13 @@ Salt Stack Formula to set up and configure the lifecycle management tool Foreman
 
 The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by e.g. Salt Stack Formulas.
 
+* get Foreman to use as much Salt as possible
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI
 * foreman-proxy: use https://github.com/bechtoldt/tftp-formula
-* foreman-proxy: to tftp setup, see https://github.com/theforeman/puppet-foreman_proxy/blob/master/manifests/tftp.pp
-* foreman-proxy: https://github.com/bechtoldt/binddns-formula (creation of use defined zones is missing at the moment)
+* foreman-proxy: do tftp setup, see https://github.com/theforeman/puppet-foreman_proxy/blob/master/manifests/tftp.pp
+* foreman-proxy: https://github.com/bechtoldt/binddns-formula (creation of user defined zones is missing at the moment)
 * general: implement concept of executing the formulas in the correct order
+* move README.md to README.rst and update list of available states
 
 ## Instructions
 
