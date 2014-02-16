@@ -1,10 +1,11 @@
 {% load_yaml as rawmap %}
 Debian:
-  manage_foremanrepo: True
-  repo_url: http://deb.theforeman.org/
-  repo_dist: {{ salt['grains.get']('oscodename') }}
-  repo_comps: stable
-  repo_keyurl: http://deb.theforeman.org/foreman.asc
+  repo:
+    manage: True
+    url: http://deb.theforeman.org/
+    dist: {{ salt['grains.get']('oscodename') }}
+    comps: stable
+    keyurl: http://deb.theforeman.org/foreman.asc
   kafo_installer:
     path: /usr/bin/foreman-installer
     params_basic:
@@ -23,4 +24,8 @@ Debian:
   console:
     pkgs:
       - foreman-console
+  proxy:
+    service:
+      name: foreman-proxy
+      enable: True
 {% endload %}
