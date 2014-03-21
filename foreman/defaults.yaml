@@ -1,7 +1,6 @@
 {% load_yaml as rawmap %}
 Debian:
   repo:
-    manage: True
     url: http://deb.theforeman.org/
     dist: {{ salt['grains.get']('oscodename') }}
     comps: stable

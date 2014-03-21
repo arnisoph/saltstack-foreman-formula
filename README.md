@@ -17,6 +17,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 * foreman-proxy: https://github.com/bechtoldt/binddns-formula (creation of user defined zones is missing at the moment)
 * general: implement concept of executing the formulas in the correct order
 * move README.md to README.rst and update list of available states
+* support plugins (like bootdisk)
 
 ## Instructions
 
