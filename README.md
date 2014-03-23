@@ -10,7 +10,7 @@ Salt Stack Formula to set up and configure the lifecycle management tool Foreman
 
 The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by e.g. Salt Stack Formulas.
 
-* get Foreman to use as much Salt as possible
+* get Foreman free from Puppet
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI
 * foreman-proxy: use https://github.com/bechtoldt/tftp-formula
 * foreman-proxy: do tftp setup, see https://github.com/theforeman/puppet-foreman_proxy/blob/master/manifests/tftp.pp
@@ -50,4 +50,3 @@ None
 *SHOULD* work on:
 
 * GNU/ Linux Debian Squeeze
-* Ubuntu Precise
