@@ -4,7 +4,7 @@
 include:
   - foreman
 
-foreman-compute:
+foreman_compute:
   pkg:
     - installed
     - pkgs:

@@ -5,7 +5,12 @@ Debian:
     dist: {{ salt['grains.get']('oscodename') }}
     comps: stable
     keyurl: http://deb.theforeman.org/foreman.asc
-  kafo_installer:
+  pluginsrepo:
+    url: http://deb.theforeman.org/
+    dist: plugins
+    comps: stable
+    keyurl: http://deb.theforeman.org/foreman.asc
+  foreman_installer:
     path: /usr/bin/foreman-installer
     params_basic:
       - verbose
@@ -24,7 +29,17 @@ Debian:
     pkgs:
       - foreman-console
   proxy:
+    pkgs:
+      - foreman-proxy
+      - ruby-foreman-api #TODO default install necessary?
+    config:
+      manage:
+        - settings_yml
+      settings_yml:
+        path: /etc/foreman-proxy/settings.yml
     service:
       name: foreman-proxy
       enable: True
+  plugins:
+    manage: []
 {% endload %}
