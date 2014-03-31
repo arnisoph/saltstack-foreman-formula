@@ -75,7 +75,7 @@ Manage Foreman proxy
 Additional resources
 ====================
 
-See [http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller](http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller)
+See http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller
 
 You may want to use the following formulas too:
 
