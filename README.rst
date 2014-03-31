@@ -81,7 +81,7 @@ You may want to use the following formulas too:
 
 * `binddns-formula <https://github.com/bechtoldt/binddns-formula>`_
 * `iscdhcp-formula <https://github.com/bechtoldt/iscdhcp-formula>`_
-* `network-formula <https://github.com/bechtoldt?tab=repositories>`_
+* `network-formula <https://github.com/bechtoldt/network-formula>`_
 * `time-formula <https://github.com/bechtoldt/time-formula>`_
 * `tftp-formula <https://github.com/bechtoldt/tftp-formula>`_
 
