@@ -1,7 +1,7 @@
 foreman:
   lookup:
     repo_comps: '1.4'
-    kafo_installer:
+    foreman_installer:
       params_puppetmodules:
         - foreman-locations-enabled=true
         - foreman-proxy-dhcp-interface=br0
@@ -16,3 +16,35 @@ foreman:
         - foreman-proxy-dhcp-range="172.16.34.150 172.16.34.200"
         - foreman-proxy-dhcp-gateway=172.16.34.1
         - foreman-proxy-tftp=false
+
+foreman:
+  lookup:
+    foreman_installer:
+      params_puppetmodules:
+        - no-enable-foreman-proxy
+        - no-enable-puppet
+    proxy:
+      config:
+        settings:
+          #---
+          :daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
+          :daemon: true
+          :dhcp_config: /etc/dhcp/dhcpd.conf
+          :dhcp_leases: /var/lib/dhcp/dhcpd.leases
+          :dhcp: true
+          :dhcp_vendor: isc
+          :dns_key: /etc/bind/rndc.key
+          :dns: true
+          :log_file: /var/log/foreman-proxy/foreman-proxy.log
+          :log_level: INFO
+          :port: 8443
+          :puppetca: false
+          :puppet: false
+          :tftp: true
+          :tftproot: /srv/tftp
+          :tftp_servername: foreman.prod.be1-net.local
+          :bmc: false
+          :bmc_default_provider: ipmitool
+    plugins:
+      manage:
+        - bootdisk
