@@ -1,3 +1,4 @@
+{# Using foreman installer #}
 foreman:
   lookup:
     repo_comps: '1.4'
@@ -17,6 +18,7 @@ foreman:
         - foreman-proxy-dhcp-gateway=172.16.34.1
         - foreman-proxy-tftp=false
 
+{# Using formula's functions but use puppet based foreman-installer to install foreman #}
 foreman:
   lookup:
     foreman_installer:
