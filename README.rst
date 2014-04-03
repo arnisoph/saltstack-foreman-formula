@@ -16,7 +16,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 * get Foreman free from Puppet (nearly done)
 * install Foreman itself
-* do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (?)
+* do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
 * general: implement concept of executing the formulas in the correct order
 * ssl certs
 * show full example/ demonstration/ screencast of how to use this and other formulas
@@ -40,6 +40,11 @@ Available states
 -----------
 
 Installs the Foreman repo
+
+``foreman.cli``
+-------------------
+
+Install Foreman CLI tools (hammer-cli)
 
 ``foreman.compute``
 -------------------
@@ -85,7 +90,7 @@ You may want to use the following formulas too:
 * `time-formula <https://github.com/bechtoldt/time-formula>`_
 * `tftp-formula <https://github.com/bechtoldt/tftp-formula>`_
 
-`Hit me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
+`Mail me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
 
 Formula Dependencies
 ====================
@@ -107,7 +112,7 @@ Salt Compatibility
 
 Tested with:
 
-* 2014.1.0
+* 2014.1.1
 
 OS Compatibility
 ================
