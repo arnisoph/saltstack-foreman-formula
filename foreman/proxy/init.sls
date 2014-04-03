@@ -21,7 +21,7 @@ foreman_proxy:
 {% endfor %}
     - require:
       - pkg: foreman_proxy
-      - group: bind-group-members
+      - cmd: bind-group-members
 {% for c in datamap.proxy.config.manage %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
@@ -70,8 +70,11 @@ foreman_proxy:
     - group: {{ datamap.proxy.group|default('foreman-proxy') }}
 
 #TODO only exec when has been installed
+#TODO improve code:
 bind-group-members:
-  group:
-    - present
-    - addusers:
-      - foreman-proxy
+  cmd:
+    - run
+    - name: usermod foreman-proxy -a -G bind
+    - onlyif: test -z $(grep bind:.*:.*foreman-proxy /etc/group)
+    - require:
+      - pkg: foreman_proxy
