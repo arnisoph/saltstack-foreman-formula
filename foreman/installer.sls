@@ -21,6 +21,6 @@ foreman-group-membership-sslcert:
   cmd:
     - run
     - name: usermod foreman -a -G ssl-cert
-    - onlyif: test -z $(grep ssl-cert:.*:.*foreman /etc/group)
+    - onlyif: test -z "$(groups foreman | grep ssl-cert)"
     - require:
       - cmd: foreman_installer

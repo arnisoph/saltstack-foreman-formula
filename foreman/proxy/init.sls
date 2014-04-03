@@ -76,14 +76,14 @@ foremanproxy-group-memberships-bind:
   cmd:
     - run
     - name: usermod foreman-proxy -a -G bind
-    - onlyif: test -z $(grep bind:.*:.*foreman-proxy /etc/group)
+    - onlyif: test -z "$(groups foreman-proxy | grep bind)"
     - require:
       - pkg: foreman_proxy
 
-foremanproxy-group-membership-sslcert:
+foremanproxy-group-memberships-sslcert:
   cmd:
     - run
     - name: usermod foreman-proxy -a -G ssl-cert
-    - onlyif: test -z $(grep ssl-cert:.*:.*foreman-proxy /etc/group)
+    - onlyif: test -z "$(groups foreman-proxy | grep ssl-cert)"
     - require:
       - pkg: foreman_proxy
