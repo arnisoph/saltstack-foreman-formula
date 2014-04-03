@@ -21,8 +21,8 @@ foreman_proxy:
 {% endfor %}
     - require:
       - pkg: foreman_proxy
-      - cmd: foreman-group-memberships-bind
-      - cmd: foreman-group-memberships-sslcert
+      - cmd: foremanproxy-group-memberships-bind
+      - cmd: foremanproxy-group-memberships-sslcert
 {% for c in datamap.proxy.config.manage %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
@@ -72,7 +72,7 @@ foreman_proxy:
 
 #TODO only exec when has been installed
 #TODO improve code:
-foreman-group-memberships-bind:
+foremanproxy-group-memberships-bind:
   cmd:
     - run
     - name: usermod foreman-proxy -a -G bind
@@ -80,7 +80,7 @@ foreman-group-memberships-bind:
     - require:
       - pkg: foreman_proxy
 
-foreman-group-membership-sslcert:
+foremanproxy-group-membership-sslcert:
   cmd:
     - run
     - name: usermod foreman-proxy -a -G ssl-cert
