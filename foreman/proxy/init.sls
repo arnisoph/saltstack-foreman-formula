@@ -21,7 +21,8 @@ foreman_proxy:
 {% endfor %}
     - require:
       - pkg: foreman_proxy
-      - cmd: bind-group-members
+      - cmd: foreman-group-memberships-bind
+      - cmd: foreman-group-memberships-sslcert
 {% for c in datamap.proxy.config.manage %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
@@ -71,10 +72,18 @@ foreman_proxy:
 
 #TODO only exec when has been installed
 #TODO improve code:
-bind-group-members:
+foreman-group-memberships-bind:
   cmd:
     - run
     - name: usermod foreman-proxy -a -G bind
     - onlyif: test -z $(grep bind:.*:.*foreman-proxy /etc/group)
+    - require:
+      - pkg: foreman_proxy
+
+foreman-group-membership-sslcert:
+  cmd:
+    - run
+    - name: usermod foreman-proxy -a -G ssl-cert
+    - onlyif: test -z $(grep ssl-cert:.*:.*foreman-proxy /etc/group)
     - require:
       - pkg: foreman_proxy
