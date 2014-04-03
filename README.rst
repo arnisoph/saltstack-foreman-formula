@@ -90,7 +90,7 @@ You may want to use the following formulas too:
 * `time-formula <https://github.com/bechtoldt/time-formula>`_
 * `tftp-formula <https://github.com/bechtoldt/tftp-formula>`_
 
-`Hit me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
+`Mail me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
 
 Formula Dependencies
 ====================
