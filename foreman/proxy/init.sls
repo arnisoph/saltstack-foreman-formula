@@ -21,6 +21,7 @@ foreman_proxy:
 {% endfor %}
     - require:
       - pkg: foreman_proxy
+      - group: bind-group-members
 {% for c in datamap.proxy.config.manage %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
@@ -67,3 +68,10 @@ foreman_proxy:
     - mode: 644
     - user: {{ datamap.proxy.user|default('foreman-proxy') }}
     - group: {{ datamap.proxy.group|default('foreman-proxy') }}
+
+#TODO only exec when has been installed
+bind-group-members:
+  group:
+    - present
+    - addusers:
+      - foreman-proxy
