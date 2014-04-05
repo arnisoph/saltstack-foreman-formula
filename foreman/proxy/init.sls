@@ -16,12 +16,12 @@ foreman_proxy:
     - name: {{ datamap.proxy.service.name|default('foreman-proxy') }}
     - enable: {{ datamap.proxy.service.enable|default(True) }}
     - watch:
-{% for c in datamap.proxy.config.manage %}
+{% for c in datamap.proxy.config.manage|default([]) %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
     - require:
       - pkg: foreman_proxy
-{% for c in datamap.proxy.config.manage %}
+{% for c in datamap.proxy.config.manage|default([]) %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
 
