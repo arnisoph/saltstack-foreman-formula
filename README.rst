@@ -89,6 +89,7 @@ You may want to use the following formulas too:
 * `network-formula <https://github.com/bechtoldt/network-formula>`_
 * `time-formula <https://github.com/bechtoldt/time-formula>`_
 * `tftp-formula <https://github.com/bechtoldt/tftp-formula>`_
+* `libvirt-formula <https://github.com/bechtoldt/libvirt-formula>`_
 
 `Mail me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
 
