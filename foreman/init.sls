@@ -6,7 +6,7 @@
 foreman_repo:
   pkgrepo:
     - managed
-    - name: deb {{ datamap.repo.url }} {{ datamap.repo.dist }} {{ datamap.repo.comps }}
+    - name: {{ datamap.repo.debtype|default('deb') }} {{ datamap.repo.url }} {{ datamap.repo.dist }} {{ datamap.repo.comps }}
     - file: /etc/apt/sources.list.d/foreman.list
     - key_url: {{ datamap.repo.keyurl }}
   {% endif %}
