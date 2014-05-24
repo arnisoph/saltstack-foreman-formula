@@ -113,7 +113,7 @@ Salt Compatibility
 
 Tested with:
 
-* 2014.1.1
+* 2014.1.4
 
 OS Compatibility
 ================
