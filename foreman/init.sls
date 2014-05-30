@@ -21,6 +21,8 @@ foreman_repo:
   #################
 #}
 
+{#
+
 /var/tmp/myca.ca.crt.csr:
   cmd:
     - run
@@ -61,3 +63,4 @@ foreman_repo:
     - name: openssl x509 -req -in /var/tmp/{{ salt['grains.get']('fqdn') }}.crt.csr -out /etc/ssl/certs/{{ salt['grains.get']('fqdn') }}.crt -signkey /etc/ssl/private/{{ salt['grains.get']('fqdn') }}.key -CA /etc/ssl/certs/myca.ca.crt -CAkey /etc/ssl/private/myca.ca.key -CAcreateserial -days 42
     - unless: test -f /etc/ssl/certs/{{ salt['grains.get']('fqdn') }}.crt
 
+#}
