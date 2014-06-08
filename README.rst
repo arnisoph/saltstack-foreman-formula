@@ -14,11 +14,8 @@ TODO
 
 The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by Salt Stack Formulas.
 
-* get Foreman free from Puppet (nearly done)
-* install Foreman itself
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
 * general: implement concept of executing the formulas in the correct order
-* ssl certs
 * show full example/ demonstration/ screencast of how to use this and other formulas
 
 Instructions
@@ -90,6 +87,8 @@ You may want to use the following formulas too:
 * `time-formula <https://github.com/bechtoldt/time-formula>`_
 * `tftp-formula <https://github.com/bechtoldt/tftp-formula>`_
 * `libvirt-formula <https://github.com/bechtoldt/libvirt-formula>`_
+* `postgresql-formula <https://github.com/bechtoldt/postgresql-formula>`_
+* `httpd-formula <https://github.com/bechtoldt/httpd-formula>`_
 
 `Mail me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
 

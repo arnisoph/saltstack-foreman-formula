@@ -45,4 +45,18 @@ Debian:
   cli:
     pkgs:
       - foreman-cli
+  webfrontend:
+    pkgs:
+      - foreman
+    config:
+      manage:
+        - settings_yaml
+        - database_yml
+      settings_yaml: {}
+      database_yml: {}
+    dbdriver_postgresql: { 'pkgs': ['foreman-postgresql'] }
+    dbdriver_sqlite: { 'pkgs': ['foreman-sqlite3'] }
+    dbdriver_msql: { 'pkgs': ['foreman-mysql2'] }
+    user: []
+    group: []
 {% endload %}

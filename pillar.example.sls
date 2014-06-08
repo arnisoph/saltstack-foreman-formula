@@ -50,3 +50,56 @@ foreman:
     plugins:
       manage:
         - bootdisk
+
+{# Install Foreman webinterface #}
+foreman:
+  lookup:
+    webfrontend:
+      sls_include:
+        - crypto.x509
+      sls_extend:
+        crypto-x509-key-foreman_key:
+          file:
+            - require:
+              - group: foreman
+      config:
+        database_yml:
+          content:
+            # SQLite version 3.x
+            development:
+              adapter: sqlite3
+              database: db/development.sqlite3
+              pool: 5
+              timeout: 5000
+
+            # Warning: The database defined as "test" will be erased and
+            # re-generated from your development database when you run "rake".
+            # Do not set this db to the same as development or production.
+            test:
+              adapter: sqlite3
+              database: db/test.sqlite3
+              pool: 5
+              timeout: 5000
+
+            # Database is managed by foreman::database::postgresql
+            production:
+              host: postgres.domain.local
+              adapter: postgresql
+              database: foreman
+              username: foreman
+              password: "42"
+
+        settings_yaml:
+          content:
+            :unattended: true
+            :puppetconfdir: /etc/puppet/puppet.conf
+            :login: true
+            :require_ssl: false
+            :locations_enabled: false
+            :organizations_enabled: false
+
+            # The following values are used for providing default settings during db migrate
+            :oauth_active: true
+            :oauth_map_users: true
+            :oauth_consumer_key: foo
+            :oauth_consumer_secret: bar
