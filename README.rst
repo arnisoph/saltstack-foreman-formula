@@ -15,7 +15,6 @@ TODO
 The long-term goal is to have a comfortable formula and all Puppet modules used by the foreman-installer (kafo) to be replaced by Salt Stack Formulas.
 
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
-* general: implement concept of executing the formulas in the correct order
 * show full example/ demonstration/ screencast of how to use this and other formulas
 
 Instructions
@@ -38,7 +37,7 @@ Available states
 Installs the Foreman repo
 
 ``foreman.cli``
--------------------
+---------------
 Install Foreman CLI tools (hammer-cli)
 
 ``foreman.compute``
