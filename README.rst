@@ -35,44 +35,39 @@ Available states
 
 ``foreman``
 -----------
-
 Installs the Foreman repo
 
 ``foreman.cli``
 -------------------
-
 Install Foreman CLI tools (hammer-cli)
 
 ``foreman.compute``
 -------------------
-
 Manage Foreman compute resources
 
 ``foreman.compute.libvirt``
 ---------------------------
-
 Manage Foreman libvirt compute resources
 
 ``foreman.console``
 -------------------
-
 Manage Foreman console feature
 
 ``foreman.installer``
 ---------------------
-
 Manage/ Install Foreman via foreman-installer (kafo/puppet based)
 
 ``foreman.plugins``
 -------------------
-
 Manage (install) plugins
 
 ``foreman.proxy``
 -----------------
-
 Manage Foreman proxy
 
+``foreman.webfrontend``
+-----------------------
+Manage the Foreman webfrontend/ webinterface itself
 
 Additional resources
 ====================
