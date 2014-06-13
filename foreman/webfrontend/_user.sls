@@ -12,7 +12,8 @@ foreman:
     - name: {{ datamap.webfrontend.user.name|default('foreman') }}
     - uid: {{ datamap.webfrontend.user.uid|default(998) }}
     - gid: {{ datamap.webfrontend.group.gid|default(998) }}
-    - optional_groups: {{ datamap.webfrontend.user.optional_groups|default([]) }}
+    - groups: {{ datamap.webfrontend.user.groups|default(['foreman']) }}
+    - optional_groups: {{ datamap.webfrontend.user.optional_groups|default(['foreman']) }}
     - home: {{ datamap.webfrontend.user.home|default('/usr/share/foreman') }}
     - shell: {{ datamap.webfrontend.user.shell|default('/bin/false') }}
     - createhome: True

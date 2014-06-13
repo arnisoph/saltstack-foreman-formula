@@ -16,6 +16,8 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
 * show full example/ demonstration/ screencast of how to use this and other formulas
+* ssl-cert membership: foreman-proxy
+* plugins require internet access, configure http(s) proxy env var?
 
 Instructions
 ============

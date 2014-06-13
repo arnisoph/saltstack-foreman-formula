@@ -31,7 +31,6 @@ Debian:
   proxy:
     pkgs:
       - foreman-proxy
-      - ruby-foreman-api #TODO default install necessary?
     config:
       manage:
         - settings_yml
@@ -57,6 +56,6 @@ Debian:
     dbdriver_postgresql: { 'pkgs': ['foreman-postgresql'] }
     dbdriver_sqlite: { 'pkgs': ['foreman-sqlite3'] }
     dbdriver_msql: { 'pkgs': ['foreman-mysql2'] }
-    user: []
-    group: []
+    user: {}
+    group: {}
 {% endload %}

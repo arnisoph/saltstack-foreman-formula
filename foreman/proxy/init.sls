@@ -5,6 +5,16 @@
 
 include:
   - foreman
+{% for si in salt['pillar.get']('foreman:lookup:preoxy:sls_include', []) %}
+  - {{ si }}
+{% endfor %}
+
+extend: {{ salt['pillar.get']('foreman:lookup:proxy:sls_extend', '{}') }}
+{#
+{-% for k, v in salt['pillar.get']('opennebula:lookup:sunstone:sls_extend', {}).items() }-}
+  {-{ k }-}: {-{ v }-}
+{-% endfor }-}
+#}
 
 foreman_proxy:
   pkg:

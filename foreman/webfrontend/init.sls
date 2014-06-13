@@ -38,10 +38,12 @@ webfrontend:
 settings_yaml:
   file:
     - name: {{ datamap.webfrontend.config.settings_yaml.path|default('/etc/foreman/settings.yaml') }}
-    - serialize
-    - dataset:
-        {{ datamap.webfrontend.config.settings_yaml.content|default({}) }}
-    - formatter: YAML
+    #- serialize
+    - managed
+    #- dataset:
+    #    {# { datamap.webfrontend.config.settings_yaml.content|default({}) } #}
+    #- formatter: YAML
+    - contents_pillar: foreman:lookup:webfrontend:config:settings_yaml:content
     - mode: 640
     - user: root
     - group: {{ datamap.webfrontend.group.name|default('foreman') }}
@@ -51,10 +53,12 @@ settings_yaml:
 database_yml:
   file:
     - name: {{ datamap.webfrontend.config.database_yml.path|default('/etc/foreman/database.yml') }}
-    - serialize
-    - dataset:
-        {{ datamap.webfrontend.config.database_yml.content|default({}) }}
-    - formatter: YAML
+    #- serialize
+    - managed
+    #- dataset:
+        #{# { datamap.webfrontend.config.database_yml.content|default({}) } #}
+    #- formatter: YAML
+    - contents_pillar: foreman:lookup:webfrontend:config:database_yml:content
     - mode: 640
     - user: root
     - group: {{ datamap.webfrontend.group.name|default('foreman') }}
