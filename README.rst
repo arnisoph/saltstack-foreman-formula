@@ -65,6 +65,10 @@ Manage (install) plugins
 -----------------
 Manage Foreman Smart Proxy
 
+``foreman.proxy.tftp``
+----------------------
+Manage Foreman Smart Proxy and tftp files
+
 ``foreman.webfrontend``
 -----------------------
 Manage the Foreman webfrontend/ webinterface itself
