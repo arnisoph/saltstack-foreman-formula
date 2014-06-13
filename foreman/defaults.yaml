@@ -39,6 +39,8 @@ Debian:
     service:
       name: foreman-proxy
       enable: True
+    user: {}
+    group: {}
   plugins:
     manage: []
   cli:

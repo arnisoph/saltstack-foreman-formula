@@ -16,7 +16,6 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
 * show full example/ demonstration/ screencast of how to use this and other formulas
-* ssl-cert membership: foreman-proxy
 * plugins require internet access, configure http(s) proxy env var?
 
 Instructions
@@ -64,7 +63,7 @@ Manage (install) plugins
 
 ``foreman.proxy``
 -----------------
-Manage Foreman proxy
+Manage Foreman Smart Proxy
 
 ``foreman.webfrontend``
 -----------------------
@@ -85,8 +84,6 @@ You may want to use the following formulas too:
 * `libvirt-formula <https://github.com/bechtoldt/libvirt-formula>`_
 * `postgresql-formula <https://github.com/bechtoldt/postgresql-formula>`_
 * `httpd-formula <https://github.com/bechtoldt/httpd-formula>`_
-
-`Mail me <https://github.com/bechtoldt>`_ if you know additional, compatible Salt Stack formulas.
 
 Formula Dependencies
 ====================

@@ -5,6 +5,7 @@
 
 include:
   - foreman
+  - foreman.proxy._user
 {% for si in salt['pillar.get']('foreman:lookup:preoxy:sls_include', []) %}
   - {{ si }}
 {% endfor %}
@@ -16,7 +17,7 @@ extend: {{ salt['pillar.get']('foreman:lookup:proxy:sls_extend', '{}') }}
 {-% endfor }-}
 #}
 
-foreman_proxy:
+proxy:
   pkg:
     - installed
     - pkgs:
@@ -32,24 +33,21 @@ foreman_proxy:
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
     - require:
-      - pkg: foreman_proxy
-      - cmd: foremanproxy-group-memberships-bind
-      - cmd: foremanproxy-group-memberships-sslcert
+      - pkg: proxy
 {% for c in datamap.proxy.config.manage|default([]) %}
       - file: {{ datamap.proxy.config[c].path }} #TODO ugly
 {% endfor %}
 
-
 {{ salt['pillar.get']('tftp:lookup:root', '/srv/tftp') }}/pxelinux.cfg:
   file:
     - directory
-    - user: {{ datamap.proxy.user|default('foreman-proxy') }}
+    - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
     - mode: 755
 
 {{ salt['pillar.get']('tftp:lookup:root', '/srv/tftp') }}/boot:
   file:
     - directory
-    - user: {{ datamap.proxy.user|default('foreman-proxy') }}
+    - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
     - mode: 755
 
 {{ salt['pillar.get']('tftp:lookup:root', '/srv/tftp') }}/pxelinux.0:
@@ -79,23 +77,5 @@ foreman_proxy:
         {{ datamap.proxy.config.settings|default({}) }}
     - formatter: YAML
     - mode: 644
-    - user: {{ datamap.proxy.user|default('foreman-proxy') }}
-    - group: {{ datamap.proxy.group|default('foreman-proxy') }}
-
-#TODO only exec when has been installed
-#TODO improve code:
-foremanproxy-group-memberships-bind:
-  cmd:
-    - run
-    - name: usermod foreman-proxy -a -G bind
-    - onlyif: test -z "$(groups foreman-proxy | grep bind)"
-    - require:
-      - pkg: foreman_proxy
-
-foremanproxy-group-memberships-sslcert:
-  cmd:
-    - run
-    - name: usermod foreman-proxy -a -G ssl-cert
-    - onlyif: test -z "$(groups foreman-proxy | grep ssl-cert)"
-    - require:
-      - pkg: foreman_proxy
+    - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
+    - group: {{ datamap.proxy.group.name|default('foreman-proxy') }}

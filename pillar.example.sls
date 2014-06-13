@@ -26,27 +26,30 @@ foreman:
         - no-enable-foreman-proxy
         - no-enable-puppet
     proxy:
+      user:
+        optional_groups:
+          - foreman-proxy
+          - ssl-cert
       config:
-        settings:
-          #---
-          :daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
-          :daemon: true
-          :dhcp_config: /etc/dhcp/dhcpd.conf
-          :dhcp_leases: /var/lib/dhcp/dhcpd.leases
-          :dhcp: true
-          :dhcp_vendor: isc
-          :dns_key: /etc/bind/rndc.key
-          :dns: true
-          :log_file: /var/log/foreman-proxy/foreman-proxy.log
-          :log_level: INFO
-          :port: 8443
-          :puppetca: false
-          :puppet: false
-          :tftp: true
-          :tftproot: /srv/tftp
-          :tftp_servername: foreman.prod.be1-net.local
-          :bmc: false
-          :bmc_default_provider: ipmitool
+        settings: |
+          daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
+          daemon: true
+          dhcp_config: /etc/dhcp/dhcpd.conf
+          dhcp_leases: /var/lib/dhcp/dhcpd.leases
+          dhcp: true
+          dhcp_vendor: isc
+          dns_key: /etc/bind/rndc.key
+          dns: true
+          log_file: /var/log/foreman-proxy/foreman-proxy.log
+          log_level: INFO
+          port: 8443
+          puppetca: false
+          puppet: false
+          tftp: true
+          tftproot: /srv/tftp
+          tftp_servername: foreman.prod.be1-net.local
+          bmc: false
+          bmc_default_provider: ipmitool
     plugins:
       manage:
         - bootdisk
@@ -62,9 +65,13 @@ foreman:
           file:
             - require:
               - group: foreman
+      user:
+        optional_groups:
+          - foreman
+          - ssl-cert
       config:
         database_yml:
-          content:
+          content: |
             # SQLite version 3.x
             development:
               adapter: sqlite3
@@ -90,16 +97,16 @@ foreman:
               password: "42"
 
         settings_yaml:
-          content:
-            :unattended: true
-            :puppetconfdir: /etc/puppet/puppet.conf
-            :login: true
-            :require_ssl: false
-            :locations_enabled: false
-            :organizations_enabled: false
+          content: |
+            unattended: true
+            puppetconfdir: /etc/puppet/puppet.conf
+            login: true
+            require_ssl: false
+            locations_enabled: false
+            organizations_enabled: false
 
             # The following values are used for providing default settings during db migrate
-            :oauth_active: true
-            :oauth_map_users: true
-            :oauth_consumer_key: foo
-            :oauth_consumer_secret: bar
+            oauth_active: true
+            oauth_map_users: true
+            oauth_consumer_key: foo
+            oauth_consumer_secret: bar
