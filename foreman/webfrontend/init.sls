@@ -21,18 +21,12 @@ extend: {{ salt['pillar.get']('foreman:lookup:webfrontend:sls_extend', '{}') }}
 dbdriver:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.webfrontend['dbdriver_' ~ datamap.webfrontend.db_type|default('postgresql')].pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.webfrontend['dbdriver_' ~ datamap.webfrontend.db_type|default('postgresql')].pkgs|default([]) }}
 
 webfrontend:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.webfrontend.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.webfrontend.pkgs|default([]) }}
 
 {% if 'settings_yaml' in datamap.webfrontend.config.manage|default([]) %}
 settings_yaml:
@@ -77,3 +71,15 @@ prepare_database:
     - user: {{ datamap.webfrontend.user.name|default('foreman') }}
     - watch:
       - file: database_yml
+
+{% if 'cron' in datamap.webfrontend.config.manage|default([]) %}
+cron: {# TODO: we should SIGHUP cron daemon #}
+  file:
+    - managed
+    - name: {{ datamap.webfrontend.config.cron.path|default('/etc/cron.d/foreman') }}
+    - source: {{ datamap.webfrontend.config.cron.template_path|default('salt://foreman/files/webfrontend/cron') }}
+    - mode: 644
+    - user: root
+    - group: root
+    - template: jinja
+{% endif %}

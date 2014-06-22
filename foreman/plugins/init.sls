@@ -23,7 +23,7 @@ foremanplugins_repo:
 {% endif %}
 
 {% for p in datamap.plugins.manage|default([]) %}
-plugin-{{ p }}: {# TODO: reload/ restart foreman #}
+plugin_{{ p }}: {# TODO: reload/ restart foreman #}
   pkg:
     - installed
     - name: ruby-foreman-{{ p }}

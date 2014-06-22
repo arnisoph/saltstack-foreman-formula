@@ -9,10 +9,7 @@ include:
 foreman_installer:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.foreman_installer.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.foreman_installer.pkgs }}
   cmd:
     - wait
     - name: {{ datamap.foreman_installer.path }}{% for param in datamap.foreman_installer.params_basic %} --{{ param }}{% endfor %}{% for param in datamap.foreman_installer.params_puppetmodules %} --{{ param }}{% endfor %}

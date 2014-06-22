@@ -9,7 +9,4 @@ include:
 foreman_cli:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.cli.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.cli.pkgs }}

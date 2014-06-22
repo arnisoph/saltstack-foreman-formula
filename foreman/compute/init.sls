@@ -9,7 +9,4 @@ include:
 foreman_compute:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.compute.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.compute.pkgs|default([]) }}

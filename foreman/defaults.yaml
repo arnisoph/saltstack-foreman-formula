@@ -29,8 +29,7 @@ Debian:
     pkgs:
       - foreman-console
   proxy:
-    pkgs:
-      - foreman-proxy
+    pkgs: []
     config:
       manage:
         - settings_yml
@@ -53,8 +52,10 @@ Debian:
       manage:
         - settings_yaml
         - database_yml
+        - cron
       settings_yaml: {}
       database_yml: {}
+      cron: {}
     dbdriver_postgresql: { 'pkgs': ['foreman-postgresql'] }
     dbdriver_sqlite: { 'pkgs': ['foreman-sqlite3'] }
     dbdriver_msql: { 'pkgs': ['foreman-mysql2'] }

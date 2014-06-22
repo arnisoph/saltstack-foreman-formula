@@ -20,10 +20,7 @@ extend: {{ salt['pillar.get']('foreman:lookup:proxy:sls_extend', '{}') }}
 proxy:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.proxy.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.proxy.pkgs|default(['foreman-proxy']) }}
   service:
     - running
     - name: {{ datamap.proxy.service.name|default('foreman-proxy') }}
@@ -34,9 +31,6 @@ proxy:
 {% endfor %}
     - require:
       - pkg: proxy
-{% for c in datamap.proxy.config.manage|default([]) %}
-      - file: {{ datamap.proxy.config[c].path }} #TODO ugly
-{% endfor %}
 
 {{ datamap.proxy.config.settings_yml.path }}:
   file:

@@ -6,10 +6,7 @@
 include:
   - foreman.compute
 
-foreman-compute-libvirt:
+foreman_compute_libvirt:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.compute.libvirt.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.compute.libvirt.pkgs|default([]) }}
