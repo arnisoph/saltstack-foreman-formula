@@ -3,7 +3,7 @@
 {% from "foreman/defaults.yaml" import rawmap with context %}
 {% set datamap = salt['grains.filter_by'](rawmap, merge=salt['pillar.get']('foreman:lookup')) %}
 
-{% if datamap.repo.manage|default(True) == True %}
+{% if datamap.repo.manage|default(True) %}
   {% if salt['grains.get']('os_family') == 'Debian' %}
 foreman_repo:
   pkgrepo:
