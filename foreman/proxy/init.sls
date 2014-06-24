@@ -27,17 +27,20 @@ proxy:
     - enable: {{ datamap.proxy.service.enable|default(True) }}
     - watch:
 {% for c in datamap.proxy.config.manage|default([]) %}
-      - file: {{ datamap.proxy.config[c].path }} #TODO ugly
+      - file: {{ c }}
 {% endfor %}
     - require:
       - pkg: proxy
 
-{{ datamap.proxy.config.settings_yml.path }}:
+{% if 'settings_yaml' in datamap.proxy.config.manage|default([]) %}
+settings_yaml:
   file:
     - serialize
+    - name: {{ datamap.proxy.config.settings_yml.path }}:
     - dataset:
         {{ datamap.proxy.config.settings|default({}) }}
     - formatter: YAML
     - mode: 644
     - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
     - group: {{ datamap.proxy.group.name|default('foreman-proxy') }}
+{% endif %}
