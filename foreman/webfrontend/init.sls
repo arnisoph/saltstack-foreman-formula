@@ -43,16 +43,16 @@ settings_yaml:
     - group: {{ datamap.webfrontend.group.name|default('foreman') }}
 {% endif %}
 
-{% if 'database_yml' in datamap.webfrontend.config.manage|default([]) %}
-database_yml:
+{% if 'database_yaml' in datamap.webfrontend.config.manage|default([]) %}
+database_yaml:
   file:
-    - name: {{ datamap.webfrontend.config.database_yml.path|default('/etc/foreman/database.yml') }}
+    - name: {{ datamap.webfrontend.config.database_yaml.path|default('/etc/foreman/database.yml') }}
     #- serialize
     - managed
     #- dataset:
-        #{# { datamap.webfrontend.config.database_yml.content|default({}) } #}
+        #{# { datamap.webfrontend.config.database_yaml.content|default({}) } #}
     #- formatter: YAML
-    - contents_pillar: foreman:lookup:webfrontend:config:database_yml:content
+    - contents_pillar: foreman:lookup:webfrontend:config:database_yaml:content
     - mode: 640
     - user: root
     - group: {{ datamap.webfrontend.group.name|default('foreman') }}
@@ -70,7 +70,7 @@ prepare_database:
     - name: {{ db_prep_cmds|join(' ') }}
     - user: {{ datamap.webfrontend.user.name|default('foreman') }}
     - watch:
-      - file: database_yml
+      - file: database_yaml
 
 {% if 'cron' in datamap.webfrontend.config.manage|default([]) %}
 cron: {# TODO: we should SIGHUP cron daemon #}

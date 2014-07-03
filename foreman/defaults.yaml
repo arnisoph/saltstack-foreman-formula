@@ -32,8 +32,8 @@ Debian:
     pkgs: []
     config:
       manage:
-        - settings_yml
-      settings_yml:
+        - settings_yaml
+      settings_yaml:
         path: /etc/foreman-proxy/settings.yml
     service:
       name: foreman-proxy
@@ -51,10 +51,10 @@ Debian:
     config:
       manage:
         - settings_yaml
-        - database_yml
+        - database_yaml
         - cron
       settings_yaml: {}
-      database_yml: {}
+      database_yaml: {}
       cron: {}
     dbdriver_postgresql: { 'pkgs': ['foreman-postgresql'] }
     dbdriver_sqlite: { 'pkgs': ['foreman-sqlite3'] }

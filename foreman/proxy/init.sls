@@ -36,7 +36,7 @@ proxy:
 settings_yaml:
   file:
     - serialize
-    - name: {{ datamap.proxy.config.settings_yml.path }}:
+    - name: {{ datamap.proxy.config.settings_yaml.path }}
     - dataset:
         {{ datamap.proxy.config.settings|default({}) }}
     - formatter: YAML
