@@ -12,11 +12,6 @@ include:
 {% endfor %}
 
 extend: {{ salt['pillar.get']('foreman:lookup:webfrontend:sls_extend', '{}') }}
-{#
-{-% for k, v in salt['pillar.get']('opennebula:lookup:sunstone:sls_extend', {}).items() }-}
-  {-{ k }-}: {-{ v }-}
-{-% endfor }-}
-#}
 
 dbdriver:
   pkg:
