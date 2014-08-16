@@ -11,11 +11,6 @@ include:
 {% endfor %}
 
 extend: {{ salt['pillar.get']('foreman:lookup:proxy:sls_extend', '{}') }}
-{#
-{-% for k, v in salt['pillar.get']('opennebula:lookup:sunstone:sls_extend', {}).items() }-}
-  {-{ k }-}: {-{ v }-}
-{-% endfor }-}
-#}
 
 proxy:
   pkg:
@@ -35,11 +30,13 @@ proxy:
 {% if 'settings_yaml' in datamap.proxy.config.manage|default([]) %}
 settings_yaml:
   file:
-    - serialize
     - name: {{ datamap.proxy.config.settings_yaml.path }}
-    - dataset:
-        {{ datamap.proxy.config.settings|default({}) }}
-    - formatter: YAML
+    #- serialize
+    - managed
+    #- dataset:
+    #    {# datamap.proxy.config.settings|default({}) #}
+    #- formatter: YAML
+    - contents_pillar: foreman:lookup:proxy:config:settings
     - mode: 644
     - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
     - group: {{ datamap.proxy.group.name|default('foreman-proxy') }}
