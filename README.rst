@@ -18,6 +18,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 * show full example/ demonstration/ screencast of how to use this and other formulas
 * plugins require internet access, configure http(s) proxy env var?
 * add Foreman 1.6 support
+* install Foreman modules to support Salt
 
 Instructions
 ============
