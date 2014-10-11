@@ -10,8 +10,8 @@ foreman_proxy:
   user:
     - present
     - name: {{ datamap.proxy.user.name|default('foreman-proxy') }}
-    - uid: {{ datamap.proxy.user.uid|default(999) }}
-    - gid: {{ datamap.proxy.group.gid|default(999) }}
+    #- uid: {{ datamap.proxy.user.uid|default(999) }}
+    #- gid: {{ datamap.proxy.group.gid|default(999) }}
     - groups: {{ datamap.proxy.user.groups|default(['foreman-proxy']) }}
     - optional_groups: {{ datamap.proxy.user.optional_groups|default(['foreman-proxy']) }}
     - home: {{ datamap.proxy.user.home|default('/usr/share/foreman-proxy') }}
@@ -23,7 +23,7 @@ foreman_proxy:
   group:
     - present
     - name: {{ datamap.proxy.group.name|default('foreman-proxy') }}
-    - gid: {{ datamap.proxy.group.gid|default(999) }}
+    #- gid: {{ datamap.proxy.group.gid|default(999) }}
     - system: True
   file:
     - directory
