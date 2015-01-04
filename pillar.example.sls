@@ -31,25 +31,43 @@ foreman:
           - foreman-proxy
           - ssl-cert
       config:
-        settings: |
-          daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
-          daemon: true
-          dhcp_config: /etc/dhcp/dhcpd.conf
-          dhcp_leases: /var/lib/dhcp/dhcpd.leases
-          dhcp: true
-          dhcp_vendor: isc
-          dns_key: /etc/bind/rndc.key
-          dns: true
-          log_file: /var/log/foreman-proxy/foreman-proxy.log
-          log_level: INFO
-          port: 8443
-          puppetca: false
-          puppet: false
-          tftp: true
-          tftproot: /srv/tftp
-          tftp_servername: foreman.prod.be1-net.local
-          bmc: false
-          bmc_default_provider: ipmitool
+        settings_yaml:
+          contents: |
+            :daemon_pid: /var/run/foreman-proxy/foreman-proxy.pid
+            :daemon: true
+            :log_file: /var/log/foreman-proxy/foreman-proxy.log
+            :log_level: DEBUG
+            :ssl_certificate: /etc/ssl/certs/foreman.prod.be1-net.local.crt
+            :ssl_ca_file: /etc/ssl/certs/foreman.prod.be1-net.local.ca.crt
+            :ssl_private_key: /etc/ssl/private/foreman.prod.be1-net.local.key
+            :https_port: 8443
+            :settings_directory: /etc/foreman-proxy/settings.d
+        dhcp_yaml:
+          contents: |
+            :enabled: false
+            :dhcp_config: /etc/dhcp/dhcpd.conf
+            :dhcp_leases: /var/lib/dhcp/dhcpd.leases
+            :dhcp_vendor: isc
+        dns_yaml:
+          contents: |
+            :enabled: true
+            :dns_key: /etc/bind/rndc.key
+            :dns_server: 127.0.0.1
+        tftp_yaml:
+          contents: |
+            :enabled: false
+            :tftproot: /srv/tftp
+            :tftp_servername: foreman.prod.be1-net.local
+        puppet_yaml:
+          contents: |
+            :enabled: false
+        puppetca_yaml:
+          contents: |
+            :enabled: false
+        bmc_yaml:
+          contents: |
+            :enabled: false
+            :bmc_default_provider: ipmitool
     plugins:
       manage:
         - bootdisk

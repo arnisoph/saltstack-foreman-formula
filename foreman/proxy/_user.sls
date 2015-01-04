@@ -6,7 +6,7 @@
 include:
   - foreman
 
-foreman_proxy:
+foreman_proxy_user:
   user:
     - present
     - name: {{ datamap.proxy.user.name|default('foreman-proxy') }}
@@ -19,7 +19,7 @@ foreman_proxy:
     - createhome: True
     - system: True
     - require:
-      - group: foreman_proxy
+      - group: foreman_proxy_user
   group:
     - present
     - name: {{ datamap.proxy.group.name|default('foreman-proxy') }}
@@ -32,4 +32,4 @@ foreman_proxy:
     - user: {{ datamap.proxy.user.name|default('root') }}
     - group: {{ datamap.proxy.group.name|default('root') }}
     - require:
-      - user: foreman_proxy
+      - user: foreman_proxy_user

@@ -12,7 +12,7 @@ include:
 
 extend: {{ salt['pillar.get']('foreman:lookup:proxy:sls_extend', '{}') }}
 
-proxy:
+foreman_proxy:
   pkg:
     - installed
     - pkgs: {{ datamap.proxy.pkgs|default(['foreman-proxy']) }}
@@ -20,24 +20,22 @@ proxy:
     - running
     - name: {{ datamap.proxy.service.name|default('foreman-proxy') }}
     - enable: {{ datamap.proxy.service.enable|default(True) }}
-    - watch:
-{% for c in datamap.proxy.config.manage|default([]) %}
-      - file: {{ c }}
-{% endfor %}
     - require:
-      - pkg: proxy
+      - pkg: foreman_proxy
 
-{% if 'settings_yaml' in datamap.proxy.config.manage|default([]) %}
-settings_yaml:
+{% for c in datamap.proxy.config.manage|default([]) %}
+foreman_proxy_config_{{ c }}:
   file:
-    - name: {{ datamap.proxy.config.settings_yaml.path }}
+    - name: {{ datamap.proxy.config[c].path }}
     #- serialize
     - managed
     #- dataset:
     #    {# datamap.proxy.config.settings|default({}) #}
     #- formatter: YAML
-    - contents_pillar: foreman:lookup:proxy:config:settings
+    - contents_pillar: foreman:lookup:proxy:config:{{ c }}:contents
     - mode: 644
-    - user: {{ datamap.proxy.user.name|default('foreman-proxy') }}
-    - group: {{ datamap.proxy.group.name|default('foreman-proxy') }}
-{% endif %}
+    - user: {{ datamap.proxy.user.name|default('root') }}
+    - group: {{ datamap.proxy.group.name|default('root') }}
+    - watch_in:
+      - service: foreman_proxy
+{% endfor %}

@@ -9,7 +9,4 @@ include:
 foreman_console:
   pkg:
     - installed
-    - pkgs:
-{% for p in datamap.console.pkgs %}
-      - {{ p }}
-{% endfor %}
+    - pkgs: {{ datamap.console.pkgs }}

@@ -33,8 +33,26 @@ Debian:
     config:
       manage:
         - settings_yaml
+        - dhcp_yaml
+        - dns_yaml
+        - tftp_yaml
+        - puppet_yaml
+        - puppetca_yaml
+        - bmc_yaml
       settings_yaml:
         path: /etc/foreman-proxy/settings.yml
+      dhcp_yaml:
+        path: /etc/foreman-proxy/settings.d/dhcp.yml
+      dns_yaml:
+        path: /etc/foreman-proxy/settings.d/dns.yml
+      tftp_yaml:
+        path: /etc/foreman-proxy/settings.d/tftp.yml
+      puppet_yaml:
+        path: /etc/foreman-proxy/settings.d/puppet.yml
+      puppetca_yaml:
+        path: /etc/foreman-proxy/settings.d/puppetca.yml
+      bmc_yaml:
+        path: /etc/foreman-proxy/settings.d/bmc.yml
     service:
       name: foreman-proxy
       enable: True

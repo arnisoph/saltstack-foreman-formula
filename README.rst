@@ -83,7 +83,7 @@ Additional resources
 
 See http://theforeman.org/manuals/1.4/index.html#3.2ForemanInstaller
 
-You may want to use the following formulas too:
+You may find the following formulas helpful, too:
 
 * `binddns-formula <https://github.com/bechtoldt/binddns-formula>`_
 * `iscdhcp-formula <https://github.com/bechtoldt/iscdhcp-formula>`_
@@ -114,7 +114,8 @@ Salt Compatibility
 
 Tested with:
 
-* 2014.1.x
+* 2014.1
+* 2014.7
 
 OS Compatibility
 ================
