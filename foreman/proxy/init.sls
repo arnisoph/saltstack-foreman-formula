@@ -6,7 +6,7 @@
 include:
   - foreman
   - foreman.proxy._user
-{% for si in salt['pillar.get']('foreman:lookup:preoxy:sls_include', []) %}
+{% for si in salt['pillar.get']('foreman:lookup:proxy:sls_include', []) %}
   - {{ si }}
 {% endfor %}
 
