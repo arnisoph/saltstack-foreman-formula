@@ -20,8 +20,7 @@ The long-term goal is to have a comfortable formula and all Puppet modules used 
 * do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
 * show full example/ demonstration/ screencast of how to use this and other formulas
 * plugins require internet access, configure http(s) proxy env var?
-* add Foreman 1.6 support
-* install Foreman modules to support Salt
+* add EL support
 
 Instructions
 ============
@@ -114,7 +113,6 @@ Salt Compatibility
 
 Tested with:
 
-* 2014.1
 * 2014.7
 
 OS Compatibility
