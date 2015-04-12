@@ -24,7 +24,8 @@ Debian:
     pkgs:
       - foreman-console
   proxy:
-    pkgs: []
+    pkgs:
+      - foreman-proxy
     config:
       manage:
         - settings_yaml
