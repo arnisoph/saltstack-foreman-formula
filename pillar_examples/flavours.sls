@@ -88,7 +88,7 @@ foreman:
           - foreman
           - ssl-cert
       config:
-        database_yml:
+        database_yaml:
           content: |
             # SQLite version 3.x
             development:
