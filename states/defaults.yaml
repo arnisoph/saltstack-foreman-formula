@@ -35,6 +35,7 @@ Debian:
         - puppet_yaml
         - puppetca_yaml
         - bmc_yaml
+        - salt_yaml
       settings_yaml:
         path: /etc/foreman-proxy/settings.yml
       dhcp_yaml:
@@ -49,6 +50,8 @@ Debian:
         path: /etc/foreman-proxy/settings.d/puppetca.yml
       bmc_yaml:
         path: /etc/foreman-proxy/settings.d/bmc.yml
+      salt_yaml:
+        path: /etc/foreman-proxy/settings.d/salt.yml
     service:
       name: foreman-proxy
       enable: True
