@@ -7,8 +7,8 @@ foreman:
   user:
     - present
     - name: {{ datamap.webfrontend.user.name|default('foreman') }}
-    - uid: {{ datamap.webfrontend.user.uid|default(998) }}
-    - gid: {{ datamap.webfrontend.group.gid|default(998) }}
+    #- uid:  datamap.webfrontend.user.uid|default(998)
+    #- gid:  datamap.webfrontend.group.gid|default(998)
     - groups: {{ datamap.webfrontend.user.groups|default(['foreman']) }}
     - optional_groups: {{ datamap.webfrontend.user.optional_groups|default(['foreman']) }}
     - home: {{ datamap.webfrontend.user.home|default('/usr/share/foreman') }}
@@ -20,7 +20,7 @@ foreman:
   group:
     - present
     - name: {{ datamap.webfrontend.group.name|default('foreman') }}
-    - gid: {{ datamap.webfrontend.group.gid|default(998) }}
+    #- gid:  datamap.webfrontend.group.gid|default(998)
     - system: True
   file:
     - directory
