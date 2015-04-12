@@ -1,10 +1,5 @@
 {% load_yaml as rawmap %}
 Debian:
-  repo:
-    url: http://deb.theforeman.org/
-    dist: {{ salt['grains.get']('oscodename') }}
-    comps: stable
-    keyurl: http://deb.theforeman.org/foreman.asc
   pluginsrepo:
     url: http://deb.theforeman.org/
     dist: plugins

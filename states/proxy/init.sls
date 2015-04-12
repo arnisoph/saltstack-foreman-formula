@@ -4,7 +4,6 @@
 {% set datamap = salt['grains.filter_by'](rawmap, merge=salt['pillar.get']('foreman:lookup')) %}
 
 include:
-  - foreman
   - foreman.proxy._user
 {% for si in salt['pillar.get']('foreman:lookup:proxy:sls_include', []) %}
   - {{ si }}

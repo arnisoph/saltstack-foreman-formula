@@ -5,7 +5,6 @@
 
 
 include:
-  - foreman
   - foreman.webfrontend._user
 {% for si in salt['pillar.get']('foreman:lookup:webfrontend:sls_include', []) %}
   - {{ si }}
