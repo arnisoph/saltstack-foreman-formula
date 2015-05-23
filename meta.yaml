@@ -1,0 +1,40 @@
+name: saltstack-foreman-formula
+source: https://github.com/bechtoldt/saltstack-foreman-formula
+summary: SaltStack Formula to set up and configure the lifecycle management tool Foreman
+todo:
+  - add instructions how to use formhelper, add information about it in the formula-docs (dependency), show up alternative?
+  - 'table/ matrix: os/salt compatibility (dedicated file)'
+  - add list of available states
+  - add tests
+  - add instructions how to use formhelper, add information about it in the
+  - formula-docs (dependency), show up alternative?
+  - 'table/ matrix: os/salt compatibility (dedicated file)'
+  - add list of available states
+  - add tests
+  - do initial Foreman setup (domains, proxies, OSs, etc.) with hammer CLI (WIP)
+  - show full example/ demonstration/ screencast of how to use this and other formulas
+  - plugins require internet access, configure http(s) proxy env var?
+  - add EL support
+extra:
+  recommended_formulas:
+    - descr: Bind DNS utilities
+      name: binddns-formula
+      url: https://github.com/bechtoldt/binddns-formula
+    - descr: ISC dhcp server
+      name: iscdhcp-formula
+      url: https://github.com/bechtoldt/iscdhcp-formula
+    - descr: host network management
+      name: network-formula
+      url: https://github.com/bechtoldt/network-formula
+    - descr: tftp setup
+      name: tftp-formula
+      url: https://github.com/bechtoldt/tftp-formula
+    - descr: libvirt mgmt
+      name: libvirt-formula
+      url: https://github.com/bechtoldt/libvirt-formula
+    - descr: PostgreSQL DB
+      name: postgresql-formula
+      url: https://github.com/bechtoldt/postgresql-formula
+    - descr: Apache httpd
+      name: httpd-formula
+      url: https://github.com/bechtoldt/httpd-formula
